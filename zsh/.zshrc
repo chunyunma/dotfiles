@@ -52,6 +52,17 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+#
+# fzf and ripgrep
+#
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+export FZF_COMPLETION_TRIGGER='~~'
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs \
+		-g "!{.git,renv}/*" 2> /dev/null'
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
+
 source ~/dotfiles/zsh/external/bd.zsh
 
 if [ $(command -v "fzf") ]; then
