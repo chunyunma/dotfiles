@@ -29,3 +29,4 @@ set shiftwidth=4
 " Show substitution
 set inccommand=nosplit
 
+set hidden
