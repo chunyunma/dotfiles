@@ -16,9 +16,11 @@ setopt PUSHD_IGNORE_DUPS
 # Do not print the directory stack after using
 setopt PUSHD_SILENT
 
+# vi mode in zsh
 bindkey -v
 export KEYTIMEOUT=1
 
+# beam for INSERT mode and block for NORMAL mode in zsh
 autoload -Uz cursor_mode && cursor_mode
 
 # vim mapping for zsh completion
@@ -47,6 +49,7 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 # allow comments in interactive shell
 setopt INTERACTIVE_COMMENTS
+
 #edit zsh commands in neovim
 autoload -Uz edit-command-line
 zle -N edit-command-line
@@ -63,7 +66,14 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
+# Quickly jump to a parent directory
 source ~/dotfiles/zsh/external/bd.zsh
+
+# Clearing the shell is now done with CTRL+g 
+# because c-l is used to navigate panes in tmux
+bindkey -r '^l'
+bindkey -r '^g'
+bindkey -s '^g' 'clear\n'
 
 if [ $(command -v "fzf") ]; then
     source /usr/share/fzf/completion.zsh
