@@ -10,6 +10,9 @@ ln -sf "$DOTFILES/nvim/init.lua" "$XDG_CONFIG_HOME/nvim"
 rm -rf "$XDG_CONFIG_HOME/nvim"
 ln -sF "$DOTFILES/nvim" "$XDG_CONFIG_HOME"
 
+#
+# X11
+#
 rm -rf "$XDG_CONFIG_HOME/X11"
 ln -s "$DOTFILES/X11" "$XDG_CONFIG_HOME"
 
