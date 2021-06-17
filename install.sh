@@ -7,17 +7,8 @@
 mkdir -p "$XDG_CONFIG_HOME/nvim"
 ln -sf "$DOTFILES/nvim/init.lua" "$XDG_CONFIG_HOME/nvim"
 
-rm -rf "$XDG_CONFIG_HOME/nvim/lua"
-ln -sF "$DOTFILES/nvim/lua" "$XDG_CONFIG_HOME/nvim"
-rm -rf "$XDG_CONFIG_HOME/nvim/plugin"
-ln -sF "$DOTFILES/nvim/plugin" "$XDG_CONFIG_HOME/nvim"
-rm -rf "XDG_CONFIG_HOME/nvim/after"
-ln -sF "$DOTFILES/nvim/after" "$XDG_CONFIG_HOME/nvim"
-rm -rf "XDG_CONFIG_HOME/nvim/tools"
-ln -sF "$DOTFILES/nvim/tools" "$XDG_CONFIG_HOME/nvim"
-rm -rf "$XDG_CONFIG_HOME/nvim/my_snippets"
-ln -sF "$DOTFILES/nvim/my_snippets" "$XDG_CONFIG_HOME/nvim"
-
+rm -rf "$XDG_CONFIG_HOME/nvim"
+ln -sF "$DOTFILES/nvim" "$XDG_CONFIG_HOME"
 
 rm -rf "$XDG_CONFIG_HOME/X11"
 ln -s "$DOTFILES/X11" "$XDG_CONFIG_HOME"
