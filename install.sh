@@ -41,6 +41,24 @@ ln -sf "$DOTFILES/zsh/external" "$XDG_CONFIG_HOME/zsh"
 mkdir -p "$XDG_DATA_HOME"
 cp -rf "$DOTFILES/fonts" "$XDG_DATA_HOME"
 
+#######
+# git #
+#######
+
+mkdir -p "$XDG_CONFIG_HOME/git"
+ln -sf "$DOTFILES/git/gitconfig" "$XDG_CONFIG_HOME/git/config"
+
+########
+# tmux #
+########
+
+mkdir -p "$XDG_CONFIG_HOME/tmux"
+ln -sf "$DOTFILES/tmux/tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
+
+[ ! -d "$XDG_CONFIG_HOME/tmux/plugins" ] \
+&& git clone https://github.com/tmux-plugins/tpm \
+"$XDG_CONFIG_HOME/tmux/plugins/tpm"
+
 #
 # zathura
 #
