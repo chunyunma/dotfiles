@@ -5,7 +5,7 @@
 	defaultBranch = main
 
 [core]
-	editor = "$HOME/squashfs-root/usr/bin/nvim"
+	editor = nvim
 	pager = delta
 	excludesfile = "$XDG_CONFIG_HOME/git/ignore"
 
