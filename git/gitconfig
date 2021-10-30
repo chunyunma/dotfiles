@@ -28,3 +28,13 @@
 
 [merge]
 	ff = false
+
+[status]
+	submoduleSummary = true
+
+[diff]
+	submodule = log
+
+[alias]
+	spush = push --recurse-submodules=on-demand
+
