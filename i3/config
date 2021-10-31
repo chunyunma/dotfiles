@@ -174,6 +174,15 @@ mode "$mode_system" {
 bindsym $mod+BackSpace mode "$mode_system"
 
 
+
+
+# floating pop up automatically
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+# Example of defining a floating window
+for_window [class="Arandr"] floating enable
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -282,10 +291,13 @@ client.placeholder 	#000000 #0c0c0c $white2 #000000 0c0c0c
 
 for_window [class="URxvt*"] border pixel 1
 
-# Terminal scratchpad
+# Terminal scratchpad with tmux and three windows: 1. Terminal | 2.Neovim temp file
 for_window [instance="urxvt_scratchpad"] move to scratchpad, border none
 bindsym $mod+Shift+t [instance="urxvt_scratchpad"] scratchpad show
-exec urxvtc -name urxvt_scratchpad
+exec urxvtc -name urxvt_scratchpad \
+-e tmux -2 new-session -d -s scratchpad \; \
+new-window -n nvim 'nvim +e /tmp/nvim-tmp.md' \; \
+attach-session -d -t scratchpad
 
 # htop scratchpad
 for_window [instance="htop_scratchpad"] move to scratchpad, border none
