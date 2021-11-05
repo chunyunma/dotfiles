@@ -37,4 +37,7 @@
 
 [alias]
 	spush = push --recurse-submodules=on-demand
+    about = "!describe() { git config branch.\"$1\".description; }; describe"
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
